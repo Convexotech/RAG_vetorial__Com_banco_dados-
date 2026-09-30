@@ -2,14 +2,14 @@ services:
   - type: web
     name: rag-azure-educacional
     env: python
-    buildCommand: pip install -r requirements.txt
+    buildCommand: pip install --upgrade pip && pip install --prefer-binary --no-cache-dir -r requirements.txt
     startCommand: gunicorn app:app
     envVars:
-      - key: AZURE_OPENAI_ENDPOINT
+      - key: ENDPOINT
         sync: false
-      - key: AZURE_OPENAI_API_KEY
+      - key: API_KEY
         sync: false
-      - key: AZURE_OPENAI_API_VERSION
+      - key: API_VERSION
         value: "2024-02-15-preview"
-      - key: AZURE_OPENAI_DEPLOYMENT_NAME
+      - key: MODELO
         sync: false
